@@ -1,1 +1,123 @@
+:root {
+    --primary: rgb(87, 0, 0);
+    --dark: #0b0b0b;
+    --light: #ffffff;
+    --gray: #000000;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+.navbar {
+    position: inherit;
+    top: 0;
+    background-color: #ffffff;
+    padding: 20px 0;
+    border-bottom: 1px solid #ffffff;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4), 0 0 40px rgba(139, 0, 0, 0.4);
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
+}
+
+.navbar a:hover {
+    color: #570000;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+section {
+    scroll-margin-top: 80px;
+}
+.name {
+    font-family: 'Playfair Display', serif;
+    color: #570000;
+    font-size: 150px;
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: center;
+    margin-top: 300px;
+    margin-bottom: 10px;
+}
+.name:hover {
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+.description {
+    font-family: 'Playfair Display', serif;
+    color: #570000;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: center;
+    margin-top: 10px;
+}
+.description:hover {
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.tables-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.role-table {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(87, 0, 0);
+}
+
+.role-table h2 {
+    margin-bottom: 10px;
+    color: #570000;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    vertical-align: top;
+}
+
+th {
+    background-color: #eaeaea;
+    text-align: left;
+}
+
+ul {
+    margin: 8px 0 0 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .tables-container {
+        grid-template-columns: 1fr;
+    }
+}
