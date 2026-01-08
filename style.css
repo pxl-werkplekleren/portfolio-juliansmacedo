@@ -14,6 +14,7 @@
 html {
     scroll-behavior: smooth;
 }
+/*/ --------- NAV -------- /*/
 .navbar {
     position: inherit;
     top: 0;
@@ -51,6 +52,8 @@ body {
 section {
     scroll-margin-top: 80px;
 }
+
+/*/ NAME /*/
 .name {
     font-family: 'Playfair Display', serif;
     color: #570000;
@@ -58,12 +61,10 @@ section {
     font-weight: 500;
     line-height: 1.1;
     text-align: center;
-    margin-top: 300px;
+    margin-top: 350px;
     margin-bottom: 10px;
 }
-.name:hover {
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
+/*/ --------- DESCRIPTION --------- /*/
 .description {
     font-family: 'Playfair Display', serif;
     color: #570000;
@@ -73,51 +74,163 @@ section {
     text-align: center;
     margin-top: 10px;
 }
-.description:hover {
-    text-shadow: 0 0 10px rgb(0, 0, 0);
+
+/*/ ----- INTRO ------ /*/
+.intro-section {
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+    margin-top: 300px;
 }
 
-.tables-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+.intro-card {
+    max-width: 900px;
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgb(87, 0, 0);
+    text-align: center;
 }
 
-.role-table {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgb(87, 0, 0);
+.intro-card h2 {
+    margin-bottom: 20px;
+    color: rgb(119, 0, 0);
+    font-size: 2rem;
 }
 
-.role-table h2 {
-    margin-bottom: 10px;
-    color: #570000;
+.intro-card p {
+    line-height: 1.7;
+    color: #333333;
+    font-size: 21px;
 }
+
+
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    max-width: 1400px;
+    margin: auto;
+    border-collapse: initial;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgb(87, 0, 0);
+    font-family: "Playfair Display", serif;
 }
+ table td {
+     color: #333333;
+ }
 
 th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 1px solid #ddd;
+    padding: 18px;
     vertical-align: top;
+    font-size: 20px;
 }
 
 th {
-    background-color: #eaeaea;
-    text-align: left;
+    background-color: #ffffff;
+    color: #570000;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2.0px;
+}
+
+tr:nth-child(even) {
+
+}
+
+tr:hover {
+    background-color: rgba(158, 135, 135, 0.32);
 }
 
 ul {
-    margin: 8px 0 0 20px;
+    padding-left: 18px;
+    margin: 0;
 }
+
+.week {
+    font-weight: bold;
+    color: #570000;
+    text-align: center;
+    text-decoration-color: #570000;
+}
+
+.vakantie {
+    background-color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    text-decoration-color: #570000;
+}
+.vakantie:hover {
+    color: #570000;
+}
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 20px;
+}
+.ontwikkeling {
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    color: rgb(119, 0, 0);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    padding: 50px;
+    width: 50%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgb(87, 0, 0);
+    text-align: left;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: rgb(119, 0, 0);
+}
+
+.card p {
+    line-height: 1.6;
+    color: #333;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
 
 /* Responsive */
 @media (max-width: 900px) {
     .tables-container {
         grid-template-columns: 1fr;
+    }
+    .cards-container {
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
     }
 }
