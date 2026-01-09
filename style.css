@@ -1,7 +1,7 @@
 :root {
-    --primary: rgb(87, 0, 0);
+    --primary: #570000;
     --dark: #0b0b0b;
-    --light: #ffffff;
+    --light: rgb(239, 239, 239);
     --gray: #000000;
 }
 * {
@@ -16,13 +16,12 @@ html {
 }
 /*/ --------- NAV -------- /*/
 .navbar {
-    position: inherit;
+    position: initial;
     top: 0;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
     padding: 20px 0;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
     z-index: 100;
-    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4), 0 0 40px rgba(139, 0, 0, 0.4);
 }
 .navbar ul {
     list-style: none;
@@ -31,10 +30,11 @@ html {
     gap: 40px;
     margin: 0;
     padding: 0;
+    color: black;
 }
 
 .navbar a {
-    color: rgb(0, 0, 0);
+    color: rgb(18, 18, 18);
     font-weight: 600;
     text-decoration: none;
     font-family: "Playfair Display", serif;
@@ -43,36 +43,93 @@ html {
 .navbar a:hover {
     color: #570000;
 }
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    padding: 4px 0;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #5b0000;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/*/ ---------- /*/
 
 body {
     background: var(--light);
     color: var(--dark);
     line-height: 1.6;
 }
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+            120deg,
+            #7a0000,   /* vermelho */ #e8d2c3,   /* laranja */
+            #ff4f9a    /* rosa */
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 section {
     scroll-margin-top: 80px;
 }
-
 /*/ NAME /*/
+
 .name {
     font-family: 'Playfair Display', serif;
-    color: #570000;
+    color: #0e0e0e;
     font-size: 150px;
     font-weight: 500;
     line-height: 1.1;
     text-align: center;
-    margin-top: 350px;
+    margin-top: 250px;
     margin-bottom: 10px;
+    animation: alternate;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.name:hover {
+    color: #494949;
+    transform: translateY(-5px);
 }
 /*/ --------- DESCRIPTION --------- /*/
 .description {
     font-family: 'Playfair Display', serif;
-    color: #570000;
+    color: #050000;
     font-size: 20px;
     font-weight: 500;
     line-height: 1.1;
     text-align: center;
     margin-top: 10px;
+    animation: alternate;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.description:hover {
+    color: #000000;
+    transform: translateY(-5px);
 }
 
 /*/ ----- INTRO ------ /*/
@@ -84,62 +141,74 @@ section {
 }
 
 .intro-card {
-    max-width: 900px;
-    background-color: #ffffff;
+    max-width: 800px;
+    margin: 24px auto;
+    background-color: #57000059;
+    font-family: 'Playfair Display', serif;
     padding: 60px;
-    border-radius: 14px;
+    border-radius: 18px;
     box-shadow: 0 10px 40px rgb(87, 0, 0);
     text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-
+.intro-card:hover {
+    transform: translateY(-5px);
+}
 .intro-card h2 {
     margin-bottom: 20px;
-    color: rgb(119, 0, 0);
+    color: rgb(19, 19, 19);
     font-size: 2rem;
 }
 
 .intro-card p {
     line-height: 1.7;
-    color: #333333;
-    font-size: 21px;
-}
-
-
-
-table {
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-    border-collapse: initial;
-    background-color: #fff;
-    box-shadow: 0 8px 20px rgb(87, 0, 0);
-    font-family: "Playfair Display", serif;
-}
- table td {
-     color: #333333;
- }
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 18px;
-    vertical-align: top;
+    color: #ececec;
     font-size: 20px;
 }
 
+/*/ -------- LOGBOEK -------- /*/
+.logboek-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logboek-title {
+    margin-bottom: 50px;
+    color: #323232;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.logboek-table {
+    border-collapse: collapse;
+    background-color: rgba(87, 0, 0, 0.35);
+    font-family: "Playfair Display", serif;
+    animation-direction: alternate;
+}
+table td {
+    color: #333333;
+}
+
+th, td {
+    border: 1px solid #cdcdcd;
+    padding: 6px;
+    vertical-align: top;
+    font-size: 15px;
+
+}
+
 th {
-    background-color: #ffffff;
+    background-color: rgba(87, 0, 0, 0.09);
     color: #570000;
     text-transform: uppercase;
     font-size: 18px;
-    letter-spacing: 2.0px;
+    letter-spacing: 1.0px;
 }
-
-tr:nth-child(even) {
-
-}
-
 tr:hover {
-    background-color: rgba(158, 135, 135, 0.32);
+    background-color: rgba(87, 0, 0, 0.03);
 }
 
 ul {
@@ -155,82 +224,471 @@ ul {
 }
 
 .vakantie {
-    background-color: #ffffff;
+    background-color: rgba(87, 0, 0, 0.09);
     font-weight: bold;
     text-align: center;
     font-size: 30px;
     text-decoration-color: #570000;
 }
 .vakantie:hover {
-    color: #570000;
+    color: #6e0000;
 }
-.cards-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 100px auto;
+
+
+/*/ -------- ONTWIKKELING --------- /*/
+.ontwikkeling {
+    max-width: 800px;
+    margin: 140px auto;
     padding: 20px;
 }
-.ontwikkeling {
-    width: 100%;
-    padding: 80px 20px;
+
+.ontwikkeling h1 {
+    color: #570000;
     text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-family: "Playfair Display", serif;
+}
+.ontwikkeling h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b2b2b;
+
 }
 
-.section-title {
-    font-size: 2.5rem;
-    margin-top: 20px;
-    margin-bottom: 70px;
-    color: rgb(119, 0, 0);
-}
-
-.cards-container {
-    display: flex;
+/* container dos 2 cards */
+.ontwikkeling-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     justify-content: center;
-    gap: 80px;
-    max-width: 1100px;
-    margin: 0 auto;
 }
 
-.card {
-    background-color: #fff;
-    padding: 50px;
-    width: 50%;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgb(87, 0, 0);
-    text-align: left;
+.ontwikkeling .card {
+    background-color: rgba(87, 0, 0, 0.35);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgb(87, 0, 0);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card h2 {
-    margin-bottom: 15px;
-    color: rgb(119, 0, 0);
+.ontwikkeling .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(87, 0, 0, 0.7);
 }
 
-.card p {
+.ontwikkeling .card h3 {
+    margin-bottom: 16px;
+    color: #770000;
+}
+
+.ontwikkeling .card p {
+    color: #d6d6d6;
     line-height: 1.6;
-    color: #333;
+}
+/*/ --------- SECTION COMPETENTIES ----------- /*/
+.section-title {
+    color: #000000;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 30px;
+}
+.section-title h3 {
+    color: #000000;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+}
+
+/*/ -------- ROL ------- /*/
+.competencies {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 32px;
+    background: rgba(87, 0, 0, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgb(87, 0, 0);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.competencies-section h1 {
+    color: #570000;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.competencies:hover {
+    color: #570000;
+    transform: translateY(-5px);
+
+}
+
+.competencies h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #000000;
+}
+.competencies li {
+    color: rgba(255, 255, 255, 0.73);
+}
+
+/*/ ---------SITUEREN ------- /*/
+
+.profile-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.profile-section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    font-family: "Playfair Display", serif;
+    color: #000000;
+}
+
+.profile-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.profile-card {
+    background-color: rgba(87, 0, 0, 0.35);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 14px rgb(87, 0, 0);
+    animation-direction: alternate;
+}
+.profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgb(87, 0, 0);
+}
+
+.profile-card-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #000000;
+}
+
+.profile-card h3 {
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: #272727;
+}
+
+.profile-card p {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #eaeaea;
+}
+.profile-card--center {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+ /*/ ---------- ROLL ------------/*/
+.rollen-section {
+    max-width: 800px;
+    margin: 140px auto;
+    padding: 0 20px;
+}
+
+.rollen-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #000000;
+}
+
+/* GRID */
+.rollen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* CARD */
+.rollen-card {
+    background-color: rgba(87, 0, 0, 0.35);
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgb(87, 0, 0);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rollen-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(87, 0, 0, 0.7);
+}
+
+.rollen-card h3 {
+    margin-bottom: 14px;
+    color: #000000;
     font-size: 18px;
 }
 
-
-
-
-
-
-
-
-
-/* Responsive */
-@media (max-width: 900px) {
-    .tables-container {
-        grid-template-columns: 1fr;
-    }
-    .cards-container {
-        flex-direction: column;
-    }
-    .card {
-        width: 100%;
-    }
+.rollen-card ul {
+    padding-left: 18px;
+    margin-bottom: 14px;
 }
+
+.rollen-card li {
+    margin-bottom: 6px;
+    color: #e4e4e4;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.rollen-card .motivatie {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1c1c1c;
+}
+
+.rollen-grid .rollen-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 380px;
+    justify-self: center;
+}
+
+/*/ ----------- KERNKWADRANT -------------/*/
+
+.kernkwadrant {
+    background-color: #57000059;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    font-family: "Playfair Display", serif;
+    box-shadow: 0 4px 8px rgb(87, 0, 0);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.kernkwadrant:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 50px rgba(87, 0, 0, 0.7);
+}
+
+.kernkwadrant h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.kwadrant h3 {
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.kwadrant p {
+    line-height: 1.6;
+    color: #e4e4e4;
+}
+
+/*/  ----------------------------- REFLECTIE ------------- /*/
+.reflectie-section {
+    max-width: 800px;
+    margin: 140px auto;
+    padding: 0 20px;
+}
+
+.reflectie-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #570000;
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+}
+
+/* GRID */
+.reflectie-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* CARD */
+.reflectie-card {
+    background-color: #57000059;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgb(87, 0, 0);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reflectie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(87, 0, 0, 0.7);
+}
+
+.reflectie-card h3 {
+    margin-bottom: 14px;
+    color: #000000;
+    font-size: 18px;
+}
+
+.reflectie-card p {
+    color: #e4e4e4;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.reflectie-grid .reflectie-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 380px;
+    justify-self: center;
+}
+
+/*/ -------------- XFACTOR ----------------/*/
+.xfactor-section {
+    max-width: 800px;
+    margin: 140px auto;
+    padding: 0 20px;
+}
+
+.xfactor-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #570000;
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+}
+.xfactor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.xfactor-card {
+    background-color: rgba(87, 0, 0, 0.35);
+    padding: 26px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgb(87, 0, 0);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.xfactor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(87, 0, 0, 0.7);
+}
+
+.xfactor-card h3 {
+    margin-bottom: 14px;
+    color: #000000;
+    font-size: 18px;
+}
+
+.xfactor-card p {
+    color: #e4e4e4;
+    line-height: 1.6;
+    font-size: 15px;
+}
+/* ---------------- FOOTER ---------------- */
+.footer {
+    position: relative;
+    margin-top: 120px;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(238, 238, 238, 0);
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    background-color: #fafafa;
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(87, 0, 0, 0.09);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    background-color: #3d0000;
+}
+/*/ -------- contact card -------- /*/
+.contact-card {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(87, 0, 0, 0.35);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgb(87, 0, 0);
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    animation-direction: alternate;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.contact-card:hover {
+    transform: translateY(-8px);
+}
+
+.contact-card h2 {
+    margin-bottom: 10px;
+    color: #570000;
+}
+
+.contact-card p {
+    color: #555;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(87, 0, 0, 0.35);
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #570000;
+}
+
+
+/* ================= RESPONSIVO ================= */
+    @media (max-width: 768px) {
+        .cards-container {
+            grid-template-columns: 1fr;
+        }
+
+        .cards-container .card:nth-child(odd):last-child {
+            max-width: 100%;
+        }
+        .ontwikkeling-cards {
+            grid-template-columns: 1fr;
+        }
+        .reflectie-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .reflectie-grid .reflectie-card:last-child:nth-child(odd) {
+            max-width: 100%;
+        }
+    }
